@@ -51,3 +51,17 @@ services:
     links:
       - mysql:mysql
       - redis:redis
+  zy:
+    container_name: zy
+    image: "ifucloud/php-nginx:7.0"
+    volumes:
+      - ./etc/zy.conf:/etc/nginx/conf.d/default.conf
+      - /www/code/zy:/var/www/html
+      - /etc/localtime:/etc/localtime
+    network_mode: "bridge"
+    depends_on:
+      - mysql
+      - redis
+    links:
+      - mysql:mysql
+      - redis:redis
