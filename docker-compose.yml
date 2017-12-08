@@ -40,6 +40,8 @@ services:
   blog:
     container_name: blog
     image: "ifucloud/php-nginx:7.0"
+    ports:
+      - "8081:80"
     volumes:
       - ./etc/blog.conf:/etc/nginx/conf.d/default.conf
       - /www/code/blog:/var/www/html
