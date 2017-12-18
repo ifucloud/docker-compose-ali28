@@ -67,3 +67,11 @@ services:
     links:
       - mysql:mysql
       - redis:redis
+  fops:
+      container_name: fops
+      image: "ifucloud/node-nginx:6"
+      volumes:
+        - ./etc/vue/fops.conf:/etc/nginx/sites-available/default
+        - /www/code/fops:/var/www/site
+        - /etc/localtime:/etc/localtime
+      network_mode: "bridge"
