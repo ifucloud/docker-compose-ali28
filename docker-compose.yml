@@ -13,9 +13,11 @@ services:
     depends_on:
       - blog
       - zy
+      - fops
     links:
       - blog:blog
       - zy:zy
+      - fops:fops
   redis:
     container_name: redis
     image: "redis:4"
